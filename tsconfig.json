@@ -1,0 +1,31 @@
+{
+    "buildOnSave": true,
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2016",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "experimentalDecorators": true,
+        "allowJs": false,
+        "outDir": "./dist",
+        "rootDirs": [
+            "./src"
+        ],
+        "baseUrl": "./",
+        "sourceMap": true
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+    "include": [
+        "custom_typings",
+        "src/**/*"
+    ],
+    "files": [
+        "node_modules/@types/rethinkdb/rethinkdb",
+        "custom_typings/rethinkdbex",
+        "custom_typings/rethinkdbdash"
+    ]
+}

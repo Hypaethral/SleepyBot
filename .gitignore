@@ -1,0 +1,6 @@
+node_modules
+dist
+.history
+.vscode
+src/config/local.ts
+custom_typings

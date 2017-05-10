@@ -4,3 +4,4 @@ dist
 .vscode
 src/config/local.ts
 custom_typings
+yarn.lock

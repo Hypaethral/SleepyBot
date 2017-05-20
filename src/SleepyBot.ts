@@ -1,6 +1,6 @@
 import Discord = require('discord.js');
 import Commando = require('discord.js-commando');
-import Settings = require('./config/local');
+import Settings = require('config/local');
 // import RethinkDbProvider = require('./providers/RethinkProvider');
 const path = require('path');
 // const sqlite = require('sqlite');

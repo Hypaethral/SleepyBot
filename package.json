@@ -15,7 +15,14 @@
     "sqlite": "^2.5.0"
   },
   "devDependencies": {
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.18",
     "@types/rethinkdb": "types/npm-rethinkdb",
+    "@types/sinon": "^2.2.1",
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0",
+    "sinon": "^2.2.0",
     "typescript": "^2.3.2"
   }
 }

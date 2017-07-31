@@ -1,7 +1,7 @@
 node_modules
-dist
+dist/
 .history
 .vscode
-config/local.ts
+config/localConfig.ts
 custom_typings
 yarn.lock

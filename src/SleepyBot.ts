@@ -1,16 +1,20 @@
-import Discord = require('discord.js');
-import Commando = require('discord.js-commando');
-import Settings = require('config/local');
+import * as Discord from 'discord.js';
+import * as Commando from 'discord.js-commando';
+import { Settings } from '../config';
+import * as sqlite from 'sqlite';
 // import RethinkDbProvider = require('./providers/RethinkProvider');
-const path = require('path');
+import * as path from 'path';
 // const sqlite = require('sqlite');
 // const r = require('./db');
 
-export = class SleepyBot extends Commando.CommandoClient {
+export default class SleepyBot extends Commando.CommandoClient {
     async start() {
-        // this.setProvider(
-        //     sqlite.open(path.join(__dirname, 'database.sqlite3')).then(db => new Commando.SQLiteProvider(db))
-        // ).catch(console.error);
+        // todo: guildSettingsHelper
+
+        this.setProvider(
+            sqlite.open(path.join(__dirname, 'database.sqlite3')).then(db => new Commando.SQLiteProvider(db))
+        ).catch(console.error);
+
         this.commandPrefix = Settings.discord.commandPrefix;
 
         this.registerLogEvents();
@@ -22,6 +26,10 @@ export = class SleepyBot extends Commando.CommandoClient {
         }
 
         this.login(Settings.discord.botToken);
+    }
+
+    private greet(newUser: Discord.GuildMember) {
+        return newUser.guild.defaultChannel.send(`Welcome, <@${newUser.id}>!`);
     }
 
     private registerLogEvents() {
@@ -51,5 +59,11 @@ export = class SleepyBot extends Commando.CommandoClient {
             .on('groupStatusChange', (guild, group, enabled) => {
                 console.log(`Group ${group.id}\n${enabled ? 'enabled' : 'disabled'}\n${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.`);
             });
+
+        if (!Settings.discord.isSelfBot && Settings.misc.welcomeMessages) {
+            this.on('guildMemberAdd', (member) => {
+                this.greet(member);
+            });
+        }
     }
-};
+}

@@ -1,5 +1,6 @@
-import Commando = require('discord.js-commando');
-import Settings = require('config/local');
+import * as Commando from 'discord.js-commando';
+import { Settings } from '../../../config';
+
 export default class RerollDiscriminatorCommand extends Commando.Command {
     constructor(client: Commando.CommandoClient) {
         super(client, {

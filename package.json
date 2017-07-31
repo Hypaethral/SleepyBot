@@ -4,7 +4,7 @@
   "author": "Ty",
   "scripts": {
     "build": "tsc",
-    "start": "node --harmony ./dist/index.js"
+    "start": "node --harmony ./dist/src/index.js"
   },
   "license": "MIT",
   "dependencies": {
@@ -23,6 +23,7 @@
     "chai": "^3.5.0",
     "mocha": "^3.3.0",
     "sinon": "^2.2.0",
+    "ts-node": "^3.3.0",
     "typescript": "^2.3.2"
   }
 }

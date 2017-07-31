@@ -10,7 +10,8 @@
         "allowJs": false,
         "outDir": "./dist",
         "rootDirs": [
-            "./src"
+            "./src",
+            "./config"
         ],
         "baseUrl": "./",
         "sourceMap": true
@@ -21,11 +22,12 @@
     ],
     "include": [
         "custom_typings",
-        "src/**/*"
-    ],
-    "files": [
-        "node_modules/@types/rethinkdb/rethinkdb",
-        "custom_typings/rethinkdbex",
-        "custom_typings/rethinkdbdash"
+        "src/**/*",
+        "config/**/*"
     ]
+    // ],
+    // "files": [
+    //     "custom_typings/rethinkdbex",
+    //     "custom_typings/rethinkdbdash"
+    // ]
 }
